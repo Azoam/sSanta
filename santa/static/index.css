@@ -1,0 +1,56 @@
+@font-face {
+  font-family: stylishFont;
+  src: url(scd.ttf);
+  font-size: large;
+}
+body{
+  background-color: #ccff99;
+  background-size: 100%;
+  width: 100%
+}
+#main{
+  border-radius: 15px;
+  background-color: #ffb3b3;
+  padding: 30px;
+  width: 80%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.input-group{
+  padding: 30px;
+  max-width: inherit;
+  max-height: inherit;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+#info{
+  font-family: "Lucida Sans Unicode",serif;
+  margin-left: 30%;
+  margin-right: 30%;
+  max-width: inherit;
+  max-height: inherit;
+  font-weight: bold;
+  font-size: 120%;
+}
+#sub{
+  border-radius: 15px;
+  background-color: #cccccc;
+}
+.jumbotron{
+  padding: 20px;
+  font-family: stylishFont,serif;
+  background-image: url('acb.png');
+  text-align: left;
+  text-indent: 30mm;
+}
+#title{
+  font-size: 800%;
+  color: red;
+}
+#gif{
+  margin-left: 35%;
+  margin-right: 35%;
+  padding: 30px;
+}
