@@ -7,9 +7,9 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120), unique=True)
-    want = db.Column(db.String(120), unique=True)
+    username = db.Column(db.String(80), unique=False)
+    email = db.Column(db.String(120), unique=False)
+    want = db.Column(db.String(120), unique=False)
 
     def __init__(self, username, email, want):
         self.username = username
