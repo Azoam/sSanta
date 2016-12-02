@@ -4,7 +4,8 @@
   font-size: large;
 }
 body{
-  background-color: #ccff99;
+  background-image: url('gcb.jpg');
+  background-color: #70db70;
   background-size: 100%;
   width: 100%
 }
@@ -41,13 +42,13 @@ body{
 .jumbotron{
   padding: 20px;
   font-family: stylishFont,serif;
-  background-image: url('acb.png');
+  background-image: url('acb1.jpg');
   text-align: left;
-  text-indent: 30mm;
+  text-indent: 40mm;
 }
 #title{
   font-size: 800%;
-  color: red;
+  color: #208000;
 }
 #gif{
   margin-left: 35%;
