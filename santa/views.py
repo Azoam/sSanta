@@ -4,6 +4,7 @@ from sqlalchemy.sql import select
 from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 import random
+import smtplib
 
 
 @app.route('/', methods=['GET'])
@@ -41,13 +42,12 @@ def confirm():
             return render_template('index.html')
 	db.session.commit()
     	print "yo"
-        match()
         return render_template('fin.html')
 
     else:
         return render_template('index.html')
 
-@app.route('/match')
+
 def match():
     engine = create_engine('sqlite:///test.db', echo=True)
     conn = engine.connect()
@@ -59,13 +59,64 @@ def match():
     print "Testing database iteration:"
     print str(r)
     i = 0
+    originalKey = r[0]
+    key = r[0]
     while len(r) > 0:
-        temp = r.pop(i)
+	r.remove(key)
         if len(r) == 0:
-            print "1 unmatched!"
             break
         i = random.randint(0,(len(r)-1))
         print(i)
-        tel[str(temp)] = str(r[i])
+        tel[str(key)] = (str(r[i]))
+	print str(key) + " ,  " + str(r[i]) 
+	key = r[i]
     print "end"
-    print tel
+    tel[str(key)] = str(originalKey)
+    print str(key) + "  ,  " + str(originalKey)
+    emailSecretSantas(tel)
+
+def emailSecretSantas(tel):
+	engine = create_engine('sqlite:///test.db',echo=True)
+	conn = engine.connect()
+	if(len(tel) == 1):
+		return
+	print("test1")
+	sender = 'secretsanta@maildrop.cc'
+	mail = smtplib.SMTP()
+	mail.connect("smtp.gmail.com","587")
+	mail.ehlo()
+	mail.starttls()
+	mail.ehlo()
+	mail.login("ssusacs123@gmail.com","wrongpassword")
+	mail.ehlo()
+	for key in tel:
+		s1 = db.session.execute(
+			"SELECT username FROM user WHERE email=:e",
+			{'e':correctString(str(key))})
+		s2 = db.session.execute(
+			"SELECT username FROM user WHERE email=:e",
+			{'e':correctString(str(tel[key]))})
+		want = db.session.execute(
+			"SELECT want FROM user WHERE email=:e",
+			{'e':correctString(str(tel[key]))})
+		reciever = [correctString(str(key))]
+		s2 = correctString(str(s2.fetchone()))
+		want = correctString(str(want.fetchone()))
+		msg1 = "Hello %s!, you are going to be %s's Secret Santa! %s said they would like:\n%s" %(correctString(str(s1.fetchone())).title(),s2.title(),s2.title(),want.title())
+		msg = 'Subject: %s\n\n%s' % ("Secret Santa!", msg1)
+		mail.sendmail(sender, reciever, msg)
+	mail.quit()
+
+def correctString(st):
+	st = st.replace("u'","").replace("\'","").replace("[","").replace("]","").replace("(","").replace(")","").replace(",","").replace("{","").replace("}","")
+	return st
+	
+		
+
+
+
+
+
+
+
+    

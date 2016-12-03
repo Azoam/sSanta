@@ -4,16 +4,13 @@
   font-size: large;
 }
 body{
-<<<<<<< HEAD
   background-image: url('gcb.jpg');
-  background-color: #70db70;
-  background-size: 100%;
-  width: 100%
-=======
-  background-color: #ccff99;
-  max-width: 100%;
-  border: 0px;
->>>>>>> 68ee43d795f452ba17559bcc1eb050f74386cfdb
+  background-repeat: no-repeat;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100% auto;
+  background-size: 100% auto;
+
 }
 #main{
   border-radius: 15px;
@@ -47,14 +44,9 @@ body{
   padding: 20px;
   max-width: 100%;
   font-family: stylishFont,serif;
-<<<<<<< HEAD
   background-image: url('acb1.jpg');
   text-align: left;
   text-indent: 40mm;
-=======
-  background-image: url('acb.png');
-  text-align: center;
->>>>>>> 68ee43d795f452ba17559bcc1eb050f74386cfdb
 }
 #title{
   font-size: 800%;
