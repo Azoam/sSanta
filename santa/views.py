@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def main():
     return render_template('index.html')
 
@@ -13,12 +13,12 @@ def main():
 def confirm():
     engine = create_engine('sqlite:///test.db', echo=True)
     print "yo"
-    print request.form['idname']
-    print request.form['idemail']
-    print request.form['idwant']
-    _name = request.form['idname']
-    _email = request.form['idemail']
-    _want = request.form['idwant']
+    _name = request.form['idname'].lower()
+    _email = request.form['idemail'].lower()
+    _want = request.form['idwant'].lower()
+    print _name
+    print _email
+    print _want
     print "yo"
     if _name and _email and _want:
     	print "yo"
@@ -33,14 +33,14 @@ def confirm():
         r = result.fetchall()
         print "r is here:"
         print str(r)
-        if len(r) != 0:
-            print "FOUND A DUP!"
-        newUser = User(username=_name, email=_email, want=_want)
-        db.session.add(newUser)
-
-
+        if len(r) == 0:
+            newUser = User(username=_name, email=_email, want=_want)
+            db.session.add(newUser)
+        else:
+            return render_template('index.html')
 	db.session.commit()
     	print "yo"
-        return "It worked!"
+        return render_template('fin.html')
+
     else:
         return render_template('index.html')

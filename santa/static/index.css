@@ -5,14 +5,14 @@
 }
 body{
   background-color: #ccff99;
-  background-size: 100%;
-  width: 100%
+  max-width: 100%;
+  border: 0px;
 }
 #main{
   border-radius: 15px;
   background-color: #ffb3b3;
   padding: 30px;
-  width: 80%;
+  width: 90%;
   height: auto;
   margin-right: auto;
   margin-left: auto;
@@ -20,8 +20,6 @@ body{
 }
 .input-group{
   padding: 30px;
-  max-width: inherit;
-  max-height: inherit;
   margin-left: 30%;
   margin-right: 30%;
 }
@@ -29,7 +27,7 @@ body{
   font-family: "Lucida Sans Unicode",serif;
   margin-left: 30%;
   margin-right: 30%;
-  max-width: inherit;
+  max-width: 100%;
   max-height: inherit;
   font-weight: bold;
   font-size: 120%;
@@ -40,19 +38,21 @@ body{
 }
 .jumbotron{
   padding: 20px;
+  max-width: 100%;
   font-family: stylishFont,serif;
   background-image: url('acb.png');
-  text-align: left;
-  text-indent: 30mm;
+  text-align: center;
 }
 #title{
   font-size: 800%;
   color: red;
 }
 #gif{
-  margin-left: 35%;
-  margin-right: 35%;
-  padding: 30px;
+  margin-left: 33%;
+  margin-right: 30%;
+  max-width: 100%;
+  max-height: inherit;
+  padding: 20px;
 }
 #submit{
   width: 20%;
