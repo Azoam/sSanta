@@ -6,11 +6,13 @@ randomly choose for each user a person to be gifted. Information is sent through
 email.
 
 Database contains three columns:
+
 Username|Email|Want
 --------|-----|----
 User's name :+1|User's email :+1|What the user would like :+1
 
 Views file contains backend implementations:
+
 Confirm|Match|EmailSecretSantas
 --------|-----|----
 Confirmation after each user inputs info :+1|Matching Users :+1|Emailing each user :+1
