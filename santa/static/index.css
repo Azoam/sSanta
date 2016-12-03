@@ -4,16 +4,22 @@
   font-size: large;
 }
 body{
+<<<<<<< HEAD
   background-image: url('gcb.jpg');
   background-color: #70db70;
   background-size: 100%;
   width: 100%
+=======
+  background-color: #ccff99;
+  max-width: 100%;
+  border: 0px;
+>>>>>>> 68ee43d795f452ba17559bcc1eb050f74386cfdb
 }
 #main{
   border-radius: 15px;
   background-color: #ffb3b3;
   padding: 30px;
-  width: 80%;
+  width: 90%;
   height: auto;
   margin-right: auto;
   margin-left: auto;
@@ -21,8 +27,6 @@ body{
 }
 .input-group{
   padding: 30px;
-  max-width: inherit;
-  max-height: inherit;
   margin-left: 30%;
   margin-right: 30%;
 }
@@ -30,7 +34,7 @@ body{
   font-family: "Lucida Sans Unicode",serif;
   margin-left: 30%;
   margin-right: 30%;
-  max-width: inherit;
+  max-width: 100%;
   max-height: inherit;
   font-weight: bold;
   font-size: 120%;
@@ -41,21 +45,29 @@ body{
 }
 .jumbotron{
   padding: 20px;
+  max-width: 100%;
   font-family: stylishFont,serif;
+<<<<<<< HEAD
   background-image: url('acb1.jpg');
   text-align: left;
   text-indent: 40mm;
+=======
+  background-image: url('acb.png');
+  text-align: center;
+>>>>>>> 68ee43d795f452ba17559bcc1eb050f74386cfdb
 }
 #title{
   font-size: 800%;
   color: #208000;
 }
 #gif{
-  margin-left: 35%;
-  margin-right: 35%;
-  padding: 30px;
+  margin-left: 33%;
+  margin-right: 30%;
+  max-width: 100%;
+  max-height: inherit;
+  padding: 20px;
 }
-#btnSubmit{
+#submit{
   width: 20%;
   margin-left: 40%;
   margin-right: 30%;
