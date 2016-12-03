@@ -1,8 +1,8 @@
-# Secret Santa
+# USACS Secret Santa
 
-Necessary pip installs can be found in requirements.txt
-Simple flask web application that takes in multiple users and, through admin power,
-randomly choose for each user a person to be gifted. Information is sent through
+Necessary pip installs can be found in requirements.txt.
+This is a simple flask web application that takes in multiple users and 
+randomly chooses for each user a person to be gifted. Information is sent through
 email.
 
 Database contains three columns:
