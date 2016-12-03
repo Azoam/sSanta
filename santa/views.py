@@ -3,6 +3,7 @@ from santa import app, db, User
 from sqlalchemy.sql import select
 from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
+import random
 
 
 @app.route('/', methods=['GET'])
@@ -40,7 +41,31 @@ def confirm():
             return render_template('index.html')
 	db.session.commit()
     	print "yo"
+        match()
         return render_template('fin.html')
 
     else:
         return render_template('index.html')
+
+@app.route('/match')
+def match():
+    engine = create_engine('sqlite:///test.db', echo=True)
+    conn = engine.connect()
+    result = db.session.execute(
+        "SELECT email FROM user"
+    )
+    r = result.fetchall()
+    tel = {}
+    print "Testing database iteration:"
+    print str(r)
+    i = 0
+    while len(r) > 0:
+        temp = r.pop(i)
+        if len(r) == 0:
+            print "1 unmatched!"
+            break
+        i = random.randint(0,(len(r)-1))
+        print(i)
+        tel[str(temp)] = str(r[i])
+    print "end"
+    print tel
