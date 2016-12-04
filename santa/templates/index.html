@@ -20,7 +20,7 @@
       <form action="/confirm" method="POST">
           <div class="input-group">
             <span class="input-group-addon" id="idname">></span>
-            <input type="text" name="idname" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+            <input type="text" name="idname" class="form-control" placeholder="Full Name" aria-describedby="basic-addon1">
           </div>
           <div class="input-group">
             <span class="input-group-addon" id="idemail">></span>
@@ -32,7 +32,10 @@
           </div>
           <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
       </form>
-    </div>
+    <br>
+    <br>
+    <p id="error">If the page reloads after submitting, incorrect inputs were entered, try again!</p>
+    </div> 
     <img src="../static/tofsp.gif" id="gif">
   </body>
 </html>

@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 import random
 import smtplib
+import config
 
 
 @app.route('/', methods=['GET'])
@@ -14,16 +15,16 @@ def main():
 @app.route('/confirm', methods=['POST'])
 def confirm():
     engine = create_engine('sqlite:///test.db', echo=True)
-    print "yo"
     _name = request.form['idname'].lower()
     _email = request.form['idemail'].lower()
     _want = request.form['idwant'].lower()
     print _name
     print _email
     print _want
-    print "yo"
     if _name and _email and _want:
-    	print "yo"
+	if(_name == config.adminName and _email == config.adminEmail and _want == config.adminEmail):
+		match()
+		return render_template('fin.html')
         conn = engine.connect()
         print "conn worked"
         result = db.session.execute(
@@ -43,7 +44,6 @@ def confirm():
 	db.session.commit()
     	print "yo"
         return render_template('fin.html')
-
     else:
         return render_template('index.html')
 
@@ -87,7 +87,7 @@ def emailSecretSantas(tel):
 	mail.ehlo()
 	mail.starttls()
 	mail.ehlo()
-	mail.login("ssusacs123@gmail.com","wrongpassword")
+	mail.login("ssusacs123@gmail.com", config.password)
 	mail.ehlo()
 	for key in tel:
 		s1 = db.session.execute(
@@ -102,7 +102,7 @@ def emailSecretSantas(tel):
 		reciever = [correctString(str(key))]
 		s2 = correctString(str(s2.fetchone()))
 		want = correctString(str(want.fetchone()))
-		msg1 = "Hello %s!, you are going to be %s's Secret Santa! %s said they would like:\n%s" %(correctString(str(s1.fetchone())).title(),s2.title(),s2.title(),want.title())
+		msg1 = "Hello %s!, you are going to be %s's Secret Santa! Shh don't tell anyone! %s said they would like:\n%s" %(correctString(str(s1.fetchone())).title(),s2.title(),s2.title(),want.title())
 		msg = 'Subject: %s\n\n%s' % ("Secret Santa!", msg1)
 		mail.sendmail(sender, reciever, msg)
 	mail.quit()
