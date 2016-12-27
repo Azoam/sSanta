@@ -73,7 +73,7 @@ def match():
     print "end"
     tel[str(key)] = str(originalKey)
     print str(key) + "  ,  " + str(originalKey)
-    emailSecretSantas(tel)
+   # emailSecretSantas(tel)
 
 def emailSecretSantas(tel):
 	engine = create_engine('sqlite:///test.db',echo=True)
