@@ -61,6 +61,7 @@ def match():
     i = 0
     originalKey = r[0]
     key = r[0]
+    f = open('santa/matchText.txt','w')
     while len(r) > 0:
 	r.remove(key)
         if len(r) == 0:
@@ -68,11 +69,14 @@ def match():
         i = random.randint(0,(len(r)-1))
         print(i)
         tel[str(key)] = (str(r[i]))
-	print str(key) + " ,  " + str(r[i]) 
+	f.write(str(key) + " ,  " + str(r[i]))
+	f.write("\n") 
 	key = r[i]
     print "end"
+    
     tel[str(key)] = str(originalKey)
-    print str(key) + "  ,  " + str(originalKey)
+    f.write(str(key) + "  ,  " + str(originalKey))
+    f.close()
    # emailSecretSantas(tel)
 
 def emailSecretSantas(tel):
